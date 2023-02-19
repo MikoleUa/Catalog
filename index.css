@@ -92,6 +92,9 @@ footer {
   color: #fff;
   padding: 10px;
   text-align: center;
+
+  position: absolute;
+  width: 100%;
 }
 
 /* Modal styles */
@@ -133,7 +136,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   #filters input,
   #filters select {
     flex-basis: 100%;

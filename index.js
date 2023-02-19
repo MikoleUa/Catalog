@@ -94,7 +94,7 @@ function applyFilters() {
   // Add event listener to each product image to show modal
   document.querySelectorAll(".product img").forEach((img) => {
     img.addEventListener("click", function () {
-      modal.style.display = "block";
+      modal.style.display = "flex";
       modalImg.src = this.src;
     });
   });
@@ -119,7 +119,7 @@ const modal = document.getElementById("modal");
 // Add event listener to each product image to show modal
 document.querySelectorAll(".product img").forEach((img) => {
   img.addEventListener("click", function () {
-    modal.style.display = "block";
+    modal.style.display = "flex";
     modalImg.src = this.src;
   });
 });
