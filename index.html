@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wood market</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Wood market</h1>
+    </header>
+    <section class="section">
+      <div id="filters">
+        <label class="inputBtn" for="search">
+          <input
+            placeholder="введіть для пошуку..."
+            type="text"
+            id="search"
+            name="search"
+          />
+
+          <button id="applyFilters">пошук</button></label
+        >
+
+        <label for="category">Категорії</label>
+        <select id="category" name="category">
+          <option value="all">Всі категорії</option>
+          <option value="Сковороди">Сковороди</option>
+          <option value="Дерево">Дерево</option>
+          <option value="home">Home</option>
+        </select>
+      </div>
+
+      <div id="productList">
+        <!-- Products will be dynamically added here -->
+      </div>
+      <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img id="modalImg" class="modal-content" />
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2023 Mykola Khmeliuk</p>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
