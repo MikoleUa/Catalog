@@ -45,13 +45,13 @@ const products = [
   },
   {
     name: "Ділдак",
-    category: "home",
+    category: "Ділдо",
     price: 50,
     image: "./img/M3800024-Sex_toy,_X-ray.jpg",
   },
   {
     name: "Ділдак 2",
-    category: "home",
+    category: "Ділдо",
     price: 1500,
     image: "./img/M3800024-Sex_toy,_X-ray.jpg",
   },
@@ -61,7 +61,7 @@ const products = [
 const searchInput = document.getElementById("search");
 const categorySelect = document.getElementById("category");
 const applyFiltersButton = document.getElementById("applyFilters");
-
+const navBTN = document.querySelector(".navBTN");
 // Get the product list element
 const productList = document.getElementById("productList");
 
@@ -71,13 +71,24 @@ applyFiltersButton.addEventListener("click", applyFilters);
 // Display all products when the page loads
 displayProducts(products);
 
-categorySelect.addEventListener("click", applyFilters);
+categorySelect.addEventListener("change", applyFilters);
+navBTN.addEventListener("click", onnavBTN);
 
+function onnavBTN(e) {
+  const selectedBtn = e.target.name;
+
+  const filteredProducts = products.filter((product) => {
+    const category = product.category;
+    return selectedBtn === "all" || selectedBtn === category;
+  });
+  searchInput.value = "";
+  // Display the filtered products
+  displayProducts(filteredProducts);
+}
 function applyFilters() {
   // Get the search query and category filter values
   const searchQuery = searchInput.value.toLowerCase();
   const categoryFilter = categorySelect.value;
-
   // Filter the products based on the search query and category filter
   const filteredProducts = products.filter((product) => {
     const name = product.name.toLowerCase();

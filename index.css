@@ -25,6 +25,10 @@ header {
   border-radius: 15px;
 }
 /* Filters styles */
+.navBTN {
+  display: flex;
+  gap: 8px;
+}
 .inputBtn {
   display: flex;
 }
