@@ -1,4 +1,3 @@
-// Sample product data
 const products = [
   {
     name: "Сковорода",
@@ -57,18 +56,15 @@ const products = [
   },
 ];
 
-// Get the filter elements
 const searchInput = document.getElementById("search");
 const categorySelect = document.getElementById("category");
 const applyFiltersButton = document.getElementById("applyFilters");
 const navBTN = document.querySelector(".navBTN");
-// Get the product list element
+
 const productList = document.getElementById("productList");
 
-// Apply filters when the Apply Filters button is clicked
 applyFiltersButton.addEventListener("click", applyFilters);
 
-// Display all products when the page loads
 displayProducts(products);
 
 categorySelect.addEventListener("change", applyFilters);
@@ -82,14 +78,13 @@ function onnavBTN(e) {
     return selectedBtn === "all" || selectedBtn === category;
   });
   searchInput.value = "";
-  // Display the filtered products
+
   displayProducts(filteredProducts);
 }
 function applyFilters() {
-  // Get the search query and category filter values
   const searchQuery = searchInput.value.toLowerCase();
   const categoryFilter = categorySelect.value;
-  // Filter the products based on the search query and category filter
+
   const filteredProducts = products.filter((product) => {
     const name = product.name.toLowerCase();
     const category = product.category;
@@ -99,10 +94,9 @@ function applyFilters() {
     );
   });
   searchInput.value = "";
-  // Display the filtered products
+
   displayProducts(filteredProducts);
 
-  // Add event listener to each product image to show modal
   document.querySelectorAll(".product img").forEach((img) => {
     img.addEventListener("click", function () {
       modal.style.display = "flex";
@@ -112,10 +106,8 @@ function applyFilters() {
 }
 
 function displayProducts(products) {
-  // Clear the product list first
   productList.innerHTML = "";
 
-  // Loop through the products and create an HTML element for each one
   products.forEach((product) => {
     const productElement = document.createElement("div");
     productElement.className = "product";
@@ -124,10 +116,8 @@ function displayProducts(products) {
   });
 }
 
-// Get the modal element
 const modal = document.getElementById("modal");
 
-// Add event listener to each product image to show modal
 document.querySelectorAll(".product img").forEach((img) => {
   img.addEventListener("click", function () {
     modal.style.display = "flex";
@@ -135,30 +125,25 @@ document.querySelectorAll(".product img").forEach((img) => {
   });
 });
 
-// Get the image and modal content elements
 const modalImg = document.getElementById("modalImg");
 const modalClose = document.getElementsByClassName("close")[0];
 
-// Add event listener to close button to hide modal
 modalClose.addEventListener("click", function () {
   closeModal();
 });
 
-// Add event listener to modal background to hide modal
 modal.addEventListener("click", function (e) {
   if (e.target === modal) {
     closeModal();
   }
 });
 
-// Add event listener to document to close modal with escape key
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     closeModal();
   }
 });
 
-// Function to close modal
 function closeModal() {
   modal.style.display = "none";
 }
